@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #87CEFA, #4682B4);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    margin-bottom: 20px; 
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+label {
+    margin-right: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4682B4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#submit{
+    width: 150px;
+}
+#update{
+    width: 150px;
+} 
+.button{
+    display: flex;
+    justify-content: space-around;
+}
+button:hover {
+    background-color: #36648B;
+}
+table {
+    width: 90%; 
+    max-width: 800px;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #4682B4;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s;
+}
+.error {
+    color: red;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  .editBtn{
+    background-color: red;
+  }
+  .deleteBtn{
+    background-color: rgb(56, 54, 54);
+    margin-top: 10px;
+  }
