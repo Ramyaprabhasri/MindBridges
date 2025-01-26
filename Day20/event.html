@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager</title>
+    <link rel="stylesheet" href="event.css">
+</head>
+<body>
+    <h1>Effortlessly Organize Your Life with Our Dynamic Event Manager!</h1>
+    <div class="container">
+        <form id="eventForm">
+            <label for="title">Event Title:</label>
+            <input type="text" id="eventTitle" placeholder="Enter Event Title" required>
+            <label for="date">Event Date:</label>
+            <input type="date" id="eventDate">
+        </form>
+        <button type="button" id="submit-btn">Submit</button>
+
+        <div class="event-list">
+            <h3>Upcoming Events</h3>
+            <table id="eventTable">
+                <thead>
+                    <tr>
+                        <th>Event Title</th>
+                        <th>Event Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="eventList"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="event.js"></script>
+</body>
+</html>

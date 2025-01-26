@@ -1,0 +1,306 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #FAF9F6;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #003973, #E5E5BE); 
+  padding: 20px 40px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+.nav-bar .logo h2 {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; 
+  color: white;
+  font-size: 30px;
+  letter-spacing: 1.2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+.nav-bar .admin button {
+  padding: 10px 25px;
+  font-size: 16px;
+  border-radius: 25px; 
+  background: linear-gradient(90deg, #091829, #043c78); 
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-bar .admin button:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
+}
+
+.card-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    padding: 50px;
+  }
+  .card {
+    width: 30%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+    .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+    .card-body {
+    padding: 15px;
+  }
+    .card-title {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .card-text small {
+    font-size: 0.9em;
+    color: #999;
+  }
+  
+  .card-body .btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    background: linear-gradient(90deg, #091829, #043c78); 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-body .btn:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
+  }
+#booking-section {
+  padding: 20px;
+  max-width: 650px; 
+  margin: 50px auto; 
+  border: 1px solid #ddd;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #f8f9fa;
+}
+#booking-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+#car-details p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #555;
+}
+#booking-section label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+#booking-section input[type="date"] {
+  width: 100%; 
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  margin-bottom: 20px; 
+  box-sizing: border-box; 
+}
+
+#booking-section input[type="date"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+#booking-section .btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #091829, #2077d3); 
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+#booking-section .btn:hover {
+  background-color: #0056b3; 
+}
+
+#booking-section .btn-success {
+  background-color: #28a745; 
+}
+
+#booking-section .btn-success:hover {
+  background-color: #218838; 
+}
+
+#booking-section .btn-secondary {
+  background-color: #6c757d;
+  margin-top: 20px;
+}
+
+#booking-section .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+#rent-display {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: justify;
+  color: #007bff;
+  margin-top: 20px;
+}
+.main-admin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #003973, #E5E5BE); 
+  padding: 20px 40px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+.main-admin h2 {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; 
+  color: white;
+  font-size: 30px;
+  letter-spacing: 1.2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+.main-admin button {
+  padding: 10px 25px;
+  font-size: 16px;
+  border-radius: 25px; 
+  background: linear-gradient(90deg, #091829, #043c78); 
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-bar .admin button:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); 
+}
+#add-car-btn, #add-car{
+  padding: 10px 25px;
+  font-size: 16px;
+  border-radius: 25px; 
+  background: linear-gradient(90deg, #091829, #043c78); 
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 100px;
+}
+#add-car-form {
+  max-width: 600px; 
+  margin: 40px auto; 
+  padding: 20px;
+  background-color: #f9f9f9; 
+  border: 1px solid #ddd; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  height: 450px;
+}
+#add-car-form .form-header {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form Inputs */
+.styled-form .form-group {
+  margin-bottom: 15px;
+}
+
+.styled-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+
+.styled-form .form-control {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); 
+  transition: border-color 0.3s ease;
+}
+
+.styled-form .form-control:focus {
+  outline: none;
+  border-color: #007bff; 
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+.form-submit {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-submit:hover {
+  background-color: #0056b3; 
+  transform: translateY(-2px);
+}
+
+.form-submit:active {
+  background-color: #004494; 
+  transform: translateY(0); 
+}
+
+
