@@ -1,3 +1,5 @@
+let currentFilter = "all"; 
+
 document.getElementById('submit-btn').addEventListener('click', function () {
     const title = document.getElementById('eventTitle').value;
     const date = document.getElementById('eventDate').value;
@@ -11,6 +13,7 @@ document.getElementById('submit-btn').addEventListener('click', function () {
 });
 
 const events = [];
+
 function addEvent(title, date) {
     const status = getEventStatus(date); 
     const event = { title, date, status };
@@ -26,9 +29,13 @@ function getEventStatus(date) {
 
 function renderEvents() {
     const eventList = document.getElementById('eventList');
-    eventList.innerHTML = ''; // Clear the current table content
+    eventList.innerHTML = ''; 
+    const filteredEvents = events.filter((event) => {
+        if (currentFilter === "all") return true;
+        return event.status.toLowerCase() === currentFilter;
+    });
 
-    events.forEach(function (event, index) {
+    filteredEvents.forEach(function (event, index) {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${event.title}</td>
@@ -42,6 +49,7 @@ function renderEvents() {
         eventList.appendChild(row);
     });
 }
+
 function editEvent(index) {
     const event = events[index];
     document.getElementById('eventTitle').value = event.title;
@@ -49,7 +57,13 @@ function editEvent(index) {
     events.splice(index, 1);
     renderEvents();
 }
+
 function deleteEvent(index) {
     events.splice(index, 1);
+    renderEvents();
+}
+
+function filterEvents() {
+    currentFilter = document.getElementById('filter').value;
     renderEvents();
 }
