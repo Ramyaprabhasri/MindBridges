@@ -1,5 +1,6 @@
 let username = ""; 
 const login = document.getElementById("submit-btn");
+
 if (login) {
   login.addEventListener("click", function () {
     const mail = document.getElementById("email").value;
@@ -13,14 +14,14 @@ if (login) {
       document.getElementById("mailError").innerText = "Enter a valid Email";
       flag = false;
     } else {
-      document.getElementById("mailError").innerText = ""; 
+      document.getElementById("mailError").innerText = "";
     }
 
     if (!nameValidate.test(name)) {
-      document.getElementById("nameError").innerText = "Enter a valid Name (starting with an uppercase letter)";
+      document.getElementById("nameError").innerText = "Enter a valid Name";
       flag = false;
     } else {
-      document.getElementById("nameError").innerText = ""; 
+      document.getElementById("nameError").innerText = "";
     }
 
     if (!name) {
@@ -34,9 +35,9 @@ if (login) {
     }
 
     if (flag) {
-      username = name;
-      document.getElementById("login-section").style.display = "none"; 
-      document.getElementById("quiz-section").style.display = "block"; 
+      username = name; 
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById("quiz-section").style.display = "block";
     }
   });
 }
@@ -89,7 +90,7 @@ const questions = [
   },
 ];
 
-let leaderboard = [];
+let leaderboard = []; 
 
 function renderQuiz() {
   const quizContainer = document.querySelector(".quiz-container");
@@ -118,7 +119,7 @@ renderQuiz();
 document.getElementById("submit-button").addEventListener("click", function () {
   let score = 0;
   const answerDetails = document.getElementById("answer-details");
-  answerDetails.innerHTML = ""; // Clear previous data
+  answerDetails.innerHTML = ""; 
 
   questions.forEach((q, index) => {
     const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
@@ -128,6 +129,7 @@ document.getElementById("submit-button").addEventListener("click", function () {
     if (selectedOption && selectedOption.value === "true") {
       score++; 
     }
+
     const detailDiv = document.createElement("div");
     detailDiv.classList.add("answer-detail");
     detailDiv.innerHTML = `
@@ -139,8 +141,7 @@ document.getElementById("submit-button").addEventListener("click", function () {
     answerDetails.appendChild(detailDiv);
   });
 
-  const username = localStorage.getItem("username") || "Anonymous";
-  leaderboard.push({ name: username, score });
+  leaderboard.push({ name: username || "Anonymous", score });
   leaderboard.sort((a, b) => b.score - a.score);
   document.getElementById("score").innerText = `Your score: ${score}/${questions.length}`;
   document.getElementById("quiz-section").style.display = "none";
@@ -165,8 +166,8 @@ document.getElementById("view-leaderboard").addEventListener("click", function (
 });
 
 document.getElementById("back-to-login").addEventListener("click", function () {
-  document.getElementById("email").value = ""; 
-  document.getElementById("name").value = ""; 
+  document.getElementById("email").value = "";
+  document.getElementById("name").value = "";
   document.getElementById("mailError").innerText = "";
   document.getElementById("nameError").innerText = "";
   document.getElementById("quiz-section").style.display = "none";
@@ -174,5 +175,17 @@ document.getElementById("back-to-login").addEventListener("click", function () {
   document.getElementById("leaderboard-section").style.display = "none";
   document.getElementById("login-section").style.display = "flex";
   const quizRadioButtons = document.querySelectorAll("input[type=radio]");
-  quizRadioButtons.forEach((radio) => (radio.checked = false)); 
+  quizRadioButtons.forEach((radio) => (radio.checked = false));
+});
+document.getElementById("back-tologin").addEventListener("click", function () {
+  document.getElementById("email").value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("mailError").innerText = "";
+  document.getElementById("nameError").innerText = "";
+  document.getElementById("quiz-section").style.display = "none";
+  document.getElementById("score-section").style.display = "none";
+  document.getElementById("leaderboard-section").style.display = "none";
+  document.getElementById("login-section").style.display = "flex";
+  const quizRadioButtons = document.querySelectorAll("input[type=radio]");
+  quizRadioButtons.forEach((radio) => (radio.checked = false));
 });

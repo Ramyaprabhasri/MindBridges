@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <!-- Input Section -->
+    <div id="input-section">
+        <h1>Organize your to-do lists from anywhere.</h1>
+        <form id="task-form">
+            <label for="task">Task Name: </label>
+            <input type="text" name="task" id="task" placeholder="Enter task name" required>
+            <span class="error" id="taskError"></span>
+            <br>
+            
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" cols="10" rows="3" required></textarea>
+            <span class="error" id="descriptionError"></span>
+            <br>
+            
+            <label for="date">Completion Time:</label>
+            <input type="datetime-local" id="date" name="date" required>
+            <span class="error" id="dateError"></span>
+            <br>
+            
+            <button type="button" id="submit-btn">Add Task</button>
+            <button type="button" id="update-btn" style="display: none;">Update Task</button>
+
+        </form>
+    </div>
+    
+    <!-- View Section -->
+    <div id="view-section">
+        <h2>Your Tasks</h2>
+        <select id="date-filter">
+            <option value="">Filter by Date</option>
+            <option value="week">Last one week</option>
+            <option value="month">Last one month</option>
+            <option value="sixMonths">Last six months</option>
+            <option value="year">Last one year</option>
+        </select>
+        <select id="status-filter">
+            <option value="">Filter by Status</option>
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="Incomplete">Incomplete</option>
+        </select>
+        <button type="button" id="filter-btn">Apply Filters</button>
+        <br><br>
+        <table id="task-table">
+            <h3 id="totalScore">Total Score:</h3>
+            <thead>
+                <tr>
+                    <th>Task Name</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Time Left</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="tasks">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+</html>

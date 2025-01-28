@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
       function addNewCar(name, engine, seats, mileage, price, image) {
         const newCarCard = `
-        <div class="col-12 col-md-4" style="width:37%; padding:50px;">
+        <div class="col-12 col-md-4" style="width:37%; padding:40px;">
           <div class="card" style="width: 100%;"> <!-- Ensures card fits within the column -->
             <img src="${image}" class="card-img-top" alt="${name}">
             <div class="card-body">
