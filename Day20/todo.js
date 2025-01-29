@@ -1,5 +1,4 @@
-let totalScore = 0; // Initialize total score
-
+let totalScore = 0; 
 document.getElementById('submit-btn').addEventListener("click", function () {
     const name = document.getElementById('task').value;
     const description = document.getElementById('description').value;
@@ -8,11 +7,15 @@ document.getElementById('submit-btn').addEventListener("click", function () {
     const nameRegex = /^[A-Za-z ]+$/;
 
     if (!nameRegex.test(name)) {
-        document.getElementById('nameError').innerText = "Enter Valid Task Name";
+        document.getElementById('taskError').innerText = "Enter Valid Task Name";
         flag = false;
     }
 
     if (!flag) return;
+
+    const currentDate = new Date();
+    const enteredDate = new Date(date);
+    const totalDays = Math.ceil((enteredDate - currentDate) / (1000 * 60 * 60 * 24)); 
 
     const table = document.getElementById('task-table').querySelector('tbody');
     const row = table.insertRow();
@@ -20,6 +23,7 @@ document.getElementById('submit-btn').addEventListener("click", function () {
         <td>${name}</td>
         <td>${description}</td>
         <td>${date}</td>
+        <td>${Math.max(totalDays, 0)} days</td>
         <td id="timer-${table.rows.length}">--:--</td>
         <td id="status-${table.rows.length}">Incomplete</td>
         <td>
@@ -29,6 +33,7 @@ document.getElementById('submit-btn').addEventListener("click", function () {
             <button class="endbtn" disabled>End</button>
         </td>
         <td id="score-${table.rows.length}">0</td>
+        <td id="completion-rate-${table.rows.length}">0%</td>
     `;
 
     document.getElementById("task-form").reset();
@@ -53,17 +58,19 @@ document.getElementById('submit-btn').addEventListener("click", function () {
     });
 
     row.querySelector(".endbtn").addEventListener("click", function () {
-        clearCountdown(row); 
+        clearCountdown(row);
     });
 });
 
 const timers = {};
 
 function startCountdown(row, deadline) {
-    const timerCell = row.cells[3]; 
-    const scoreCell = row.cells[6]; 
-    const statusCell = row.cells[4]; 
+    const timerCell = row.cells[4]; 
+    const scoreCell = row.cells[7]; 
+    const statusCell = row.cells[5]; 
+    const completionRateCell = row.cells[8]; 
     const deadlineTime = new Date(deadline).getTime();
+
     const intervalId = setInterval(function () {
         const now = new Date().getTime();
         const remainingTime = deadlineTime - now;
@@ -74,12 +81,17 @@ function startCountdown(row, deadline) {
             statusCell.innerText = "Incomplete";
             updateTotalScore(-2);
             scoreCell.innerText = -2;
+            completionRateCell.innerText = "0%"; 
         } else {
-            const hours = Math.floor(remainingTime / (1000 * 60 * 60));
+            const daysLeft = Math.ceil(remainingTime / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
-            timerCell.innerText = `${hours}h ${minutes}m ${seconds}s`;
+            timerCell.innerText = `${daysLeft} days ${hours}h ${minutes}m ${seconds}s`;
+            const totalDays = parseInt(row.cells[3].innerText); 
+            const progress = Math.min((totalDays - daysLeft) / totalDays * 100, 100);
+            completionRateCell.innerText = `${Math.round(progress)}%`;
         }
     }, 1000);
 
@@ -87,9 +99,10 @@ function startCountdown(row, deadline) {
 }
 
 function clearCountdown(row) {
-    const timerCell = row.cells[3]; 
-    const scoreCell = row.cells[6]; 
-    const statusCell = row.cells[4]; 
+    const timerCell = row.cells[4]; 
+    const scoreCell = row.cells[7]; 
+    const statusCell = row.cells[5]; 
+    const completionRateCell = row.cells[8]; 
     const intervalId = timers[row.rowIndex];
 
     if (intervalId) {
@@ -103,67 +116,22 @@ function clearCountdown(row) {
         timerCell.innerText = "Ended early";
         statusCell.innerText = "Completed";
         updateTotalScore(5);
-        scoreCell.innerText = 5; 
+        scoreCell.innerText = 5;
+        completionRateCell.innerText = "100%"; 
     } else {
         timerCell.innerText = "Ended after time";
         statusCell.innerText = "Incomplete";
         updateTotalScore(-2);
         scoreCell.innerText = -2;
+        completionRateCell.innerText = "0%"; 
     }
 
     row.querySelector(".endbtn").disabled = true;
 }
-document.getElementById('filter-btn').addEventListener('click', function () {
-    const selectedDateFilter = document.getElementById('date-filter').value; 
-    const selectedStatusFilter = document.getElementById('status-filter').value.toLowerCase();
-    const rows = document.querySelectorAll('#task-table tbody tr');
-    const now = new Date(); 
-    let filteredTasksCount = 0;
-
-    const oneDay = 24 * 60 * 60 * 1000;
-    const oneWeek = 7 * oneDay;
-    const oneMonth = 30 * oneDay;
-    const sixMonths = 6 * oneMonth;
-    const oneYear = 365 * oneDay;
-
-    rows.forEach(row => {
-        const dateCell = row.cells[2].innerText; 
-        const statusCell = row.cells[4].innerText.toLowerCase(); 
-        const taskDate = new Date(dateCell); 
-        let dateCondition = true;
-        let statusCondition = true;
-
-        if (selectedDateFilter) {
-            const timeDifference = now - taskDate;
-
-            if (selectedDateFilter === "week") {
-                dateCondition = timeDifference <= oneWeek;
-            } else if (selectedDateFilter === "month") {
-                dateCondition = timeDifference <= oneMonth;
-            } else if (selectedDateFilter === "sixMonths") {
-                dateCondition = timeDifference <= sixMonths;
-            } else if (selectedDateFilter === "year") {
-                dateCondition = timeDifference <= oneYear;
-            }
-        }
-
-        if (selectedStatusFilter && selectedStatusFilter !== "all") {
-            statusCondition = statusCell === selectedStatusFilter;
-        }
-
-        if (dateCondition && statusCondition) {
-            row.style.display = ""; 
-            filteredTasksCount++;
-        } else {
-            row.style.display = "none"; 
-        }
-    });
-
-    document.getElementById('totalScore').innerText = `Total Tasks: ${filteredTasksCount}`;
-});
-
 
 function updateTotalScore(scoreChange) {
-    totalScore += scoreChange;
-    document.getElementById('totalScore').innerText = `Total Score: ${totalScore}`;
+    totalScore += scoreChange; 
+    const totalScoreElement = document.getElementById('totalScore');
+    totalScoreElement.innerText = `Total Score: ${totalScore}`; 
 }
+
