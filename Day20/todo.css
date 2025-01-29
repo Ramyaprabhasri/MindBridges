@@ -8,10 +8,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Change this to flex-start to allow scrolling */
-    height: auto; /* Allow body height to grow */
-    min-height: 100vh; /* Ensure content covers at least the full viewport height */
-    overflow-y: auto; /* Enable vertical scrolling */
+    justify-content: flex-start; 
+    height: auto; 
+    min-height: 100vh; 
+    overflow-y: auto; 
 }
 
 h1 {

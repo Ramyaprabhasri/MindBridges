@@ -17,7 +17,6 @@ body {
     justify-content: space-evenly;
     align-items: center;
 }
-/* Form Container */
 form {
     background-color: #f4f4f4; 
     border-radius: 10px;
@@ -53,8 +52,6 @@ h1 {
 .form-group {
     margin-bottom: 20px;
 }
-
-/* Label Styling */
 label {
     font-size: 1rem;
     color: #020e02; 
