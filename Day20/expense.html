@@ -8,7 +8,7 @@
      <link rel="stylesheet" href="expense.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="expense-form">
         <form>
             <h1>Expense Tracker</h1>
             <div class="form-group">
@@ -27,13 +27,13 @@
                 <label for="category">Category</label>
                 <div class="radio-group">
                     <input type="radio" id="food" name="category" value="food">
-                    <label for="food">Food / Beverages</label>
+                    <label for="food">Food / Beverages</label><br>
 
                     <input type="radio" id="travel" name="category" value="travel">
-                    <label for="travel">Travel</label>
+                    <label for="travel">Travel</label><br>
 
                     <input type="radio" id="shopping" name="category" value="shopping">
-                    <label for="shopping">Shopping</label>
+                    <label for="shopping">Shopping</label><br>
                 </div>
                 <span class="error" id="categoryError"></span>
             </div>
@@ -48,7 +48,7 @@
         </form>
        
         <div class="expense-list">
-            <h2>Your Expenses</h2>
+            <h2 style="color: black;">Your Expenses</h2>
             <div class="filters-container">
                 <input type="text" id="search-bar" placeholder="Search by Expense Name">
                 
