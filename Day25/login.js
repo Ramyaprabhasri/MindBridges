@@ -3,7 +3,7 @@ document.getElementById("submit-btn").addEventListener("click", function() {
     const username = document.getElementById('name').value;
     let flag = true;
 
-    const mailValidate = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    var mailValidate = /^[a-zA-Z]+[a-zA-Z0-9_\.\-]+[@][a-z]+[\.]+[a-z]/
     const nameValidate = /^[A-Z][a-zA-Z\s]*$/;
 
     if (!mailValidate.test(email)) {
@@ -32,5 +32,7 @@ document.getElementById("submit-btn").addEventListener("click", function() {
 
     if (flag) {
         window.location.href = `product.html?name=${encodeURIComponent(username)}`;
+        document.getElementById('email').value = '';
+        document.getElementById('name').value = '';
     }
 });
