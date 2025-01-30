@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('name');
+    if (username) {
+        const container = document.querySelector(".container"); 
+        const welcomeMessage = document.createElement("h2"); 
+        welcomeMessage.innerText = `Welcome, ${username}!`;
+        welcomeMessage.classList.add("text-center", "my-3"); 
+        container.insertBefore(welcomeMessage, container.firstChild);
+    }
     fetch('https://fakestoreapi.com/products')
         .then(response => response.json())  
         .then(productDetails => {

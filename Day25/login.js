@@ -31,6 +31,6 @@ document.getElementById("submit-btn").addEventListener("click", function() {
     }
 
     if (flag) {
-        window.location.href = `welcome.html?name=${encodeURIComponent(username)}`;
+        window.location.href = `product.html?name=${encodeURIComponent(username)}`;
     }
 });
