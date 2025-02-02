@@ -1,4 +1,3 @@
-/* General Styles */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f4f4f9;
@@ -10,7 +9,6 @@ body {
   height: 100vh;
 }
 
-/* Form Container */
 .form-container {
   background: white;
   padding: 20px;
@@ -20,7 +18,6 @@ body {
   text-align: center;
 }
 
-/* Form Styles */
 h1 {
   font-size: 22px;
   margin-bottom: 20px;
@@ -47,7 +44,6 @@ input {
   font-size: 14px;
 }
 
-/* Submit Button */
 .submit-btn {
   width: 50%;
   padding: 12px;
@@ -64,7 +60,6 @@ input {
   background: #0056b3;
 }
 
-/* Table Styles */
 table {
   width: 100%;
   margin-top: 20px;
