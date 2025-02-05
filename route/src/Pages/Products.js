@@ -24,7 +24,7 @@ const Products = () => {
         <span className="cart-count">{cart.length}</span>
       </div>
 
-      <h2>Welcome, {username || "Guest"}!</h2>
+      <h2>Welcome Back, {username || "Guest"}!</h2>
 
       <div className="product-grid">
         {products.map((product) => (
