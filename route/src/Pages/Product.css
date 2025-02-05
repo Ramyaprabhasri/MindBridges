@@ -1,0 +1,117 @@
+.product-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.product-container h2 {
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-card {
+  background: linear-gradient(135deg, #ffffff, #f1f1f1);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-img {
+  width: 100%;
+  object-fit: contain;
+  height: 150px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.1);
+}
+
+.product-title {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.view-button,
+.cart-button{
+  width: 90px;
+  display: flex;
+  padding: 8px 15px;
+  background: #3498db;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out;
+  text-align: center;
+}
+
+.view-button:hover,
+.cart-button:hover {
+  background: #2980b9;
+  cursor: pointer;
+}
+
+.cart-icon-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #3498db;
+  border-radius: 50%;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cart-icon-container:hover {
+  transform: scale(1.1);
+}
+
+.cart-count {
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
